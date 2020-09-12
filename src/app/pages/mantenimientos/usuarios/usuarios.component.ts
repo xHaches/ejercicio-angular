@@ -48,8 +48,9 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       this.usuariosTemp = usuarios;
       this.cargando = false;
     });
+    window.scroll(0, 142);
   }
-
+  
   cambiarPagina( valor: number ) {
     this.desde += valor;
 
@@ -58,7 +59,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     } else if ( this.desde >= this.totalUsuarios ) {
       this.desde -= valor;
     }
-
+    
     this.cargarUsuarios();
   }
 
@@ -67,7 +68,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       return this.usuarios = this.usuariosTemp;
     }
 
-    this.busquedasService.buscar('usuarios', termino).subscribe( resultados => {
+    this.busquedasService.buscar('usuarios', termino).subscribe( (resultados: Usuario[]) => {
       this.usuarios = resultados;
     });
   }
