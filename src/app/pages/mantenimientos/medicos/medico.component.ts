@@ -55,7 +55,7 @@ export class MedicoComponent implements OnInit {
       if ( !medico ) {
         this.router.navigateByUrl(`/dashboard/medicos`);
       }
-      const { nombre, hospital: { _id } } = medico;
+      const { nombre, hospital:{ _id } } = medico;
       this.medicoSeleccionado = medico;
       this.medicoForm.setValue({ nombre, hospital: _id });
     });
